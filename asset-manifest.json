@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/goit-react-colorpicker-counter-dropdown-todolist/static/css/main.dcdbb674.css",
-    "main.js": "/goit-react-colorpicker-counter-dropdown-todolist/static/js/main.f150690c.js",
+    "main.js": "/goit-react-colorpicker-counter-dropdown-todolist/static/js/main.e653e640.js",
     "index.html": "/goit-react-colorpicker-counter-dropdown-todolist/index.html",
     "main.dcdbb674.css.map": "/goit-react-colorpicker-counter-dropdown-todolist/static/css/main.dcdbb674.css.map",
-    "main.f150690c.js.map": "/goit-react-colorpicker-counter-dropdown-todolist/static/js/main.f150690c.js.map"
+    "main.e653e640.js.map": "/goit-react-colorpicker-counter-dropdown-todolist/static/js/main.e653e640.js.map"
   },
   "entrypoints": [
     "static/css/main.dcdbb674.css",
-    "static/js/main.f150690c.js"
+    "static/js/main.e653e640.js"
   ]
 }
