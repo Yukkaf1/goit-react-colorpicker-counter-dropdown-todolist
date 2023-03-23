@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/goit-react-colorpicker-counter-dropdown-todolist/settings/static/css/main.dcdbb674.css",
-    "main.js": "/goit-react-colorpicker-counter-dropdown-todolist/settings/static/js/main.9e89423a.js",
-    "index.html": "/goit-react-colorpicker-counter-dropdown-todolist/settings/index.html",
-    "main.dcdbb674.css.map": "/goit-react-colorpicker-counter-dropdown-todolist/settings/static/css/main.dcdbb674.css.map",
-    "main.9e89423a.js.map": "/goit-react-colorpicker-counter-dropdown-todolist/settings/static/js/main.9e89423a.js.map"
+    "main.css": "/goit-react-colorpicker-counter-dropdown-todolist/static/css/main.dcdbb674.css",
+    "main.js": "/goit-react-colorpicker-counter-dropdown-todolist/static/js/main.f150690c.js",
+    "index.html": "/goit-react-colorpicker-counter-dropdown-todolist/index.html",
+    "main.dcdbb674.css.map": "/goit-react-colorpicker-counter-dropdown-todolist/static/css/main.dcdbb674.css.map",
+    "main.f150690c.js.map": "/goit-react-colorpicker-counter-dropdown-todolist/static/js/main.f150690c.js.map"
   },
   "entrypoints": [
     "static/css/main.dcdbb674.css",
-    "static/js/main.9e89423a.js"
+    "static/js/main.f150690c.js"
   ]
 }
