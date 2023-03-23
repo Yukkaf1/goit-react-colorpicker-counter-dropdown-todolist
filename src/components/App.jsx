@@ -8,5 +8,5 @@ export const App = () => {
   //   { label: 'grey', color: '#607D8B' },
   //   { label: 'pink', color: '#3F5185' },
   // ];
-  return <Counter initialValue={7} />;
+  return <Counter initialValue={14} />;
 };
