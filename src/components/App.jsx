@@ -1,18 +1,11 @@
-// import { Recipe } from './Recipe/Recipe';
-// import { RecipeList } from './RecipeList/RecipeList';
-import { PaymentWidget } from './PaymentWidget/PaymentWidget';
-// import recipes from '../recepies.json';
-
 export const App = () => {
-  return (
-    <div>
-      {/* <RecipeList recipes={recipes} /> */}
+  const colorPickerOptions = [
+    { label: 'red', color: '#F44336' },
+    { label: 'green', color: '#4CAF50' },
+    { label: 'blue', color: '#2196F3' },
+    { label: 'grey', color: '#607D8B' },
+    { label: 'pink', color: '#3F5185' },
+  ];
 
-      <PaymentWidget />
-
-      {/* <Recipe recipe={recipes[0]} />
-      <Recipe recipe={recipes[1]} /> */}
-      {/* <Recipe name={recipes[0].name} time={recipes[0].time}/> */}
-    </div>
-  );
+  return <div></div>;
 };
