@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   width: 400px;
-
+  border: 1px solid grey;
   padding: 8px;
 `;
 
@@ -30,5 +31,6 @@ export const Menu = styled.div`
   padding: 20px;
   text-align: center;
   background-color: teal;
+  width: 400px;
   color: white;
 `;

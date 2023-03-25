@@ -11,5 +11,10 @@ export const App = () => {
   // ];
   // return <Counter initialValue={22} />;
 
-  return <Dropdown />;
+  return (
+    <>
+      {/* <Counter initialValue={22} /> */}
+      <Dropdown />
+    </>
+  );
 };
