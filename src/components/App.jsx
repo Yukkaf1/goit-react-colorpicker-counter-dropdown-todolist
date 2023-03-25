@@ -1,4 +1,5 @@
 import { Counter } from './Counter/Counter';
+import { Dropdown } from './Dropdown/Dropdown';
 
 export const App = () => {
   // const colorPickerOptions = [
@@ -8,5 +9,7 @@ export const App = () => {
   //   { label: 'grey', color: '#607D8B' },
   //   { label: 'pink', color: '#3F5185' },
   // ];
-  return <Counter initialValue={22} />;
+  // return <Counter initialValue={22} />;
+
+  return <Dropdown />;
 };
