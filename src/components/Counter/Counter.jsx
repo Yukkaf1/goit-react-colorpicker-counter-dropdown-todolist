@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import { Wrapper, CounterValue, Button } from './Counter.styled';
+import { Controls } from './Controls';
+import { Wrapper, CounterValue } from './Counter.styled';
 
 export class Counter extends Component {
   static defaultProps = {
@@ -14,11 +15,7 @@ export class Counter extends Component {
   handleIncrement = () => {
     // this.setState({value: 10,})
 
-    this.setState(prevState => {
-      return {
-        value: prevState.value + 1,
-      };
-    });
+    this.setState(prevState => ({ value: prevState.value + 1 }));
   };
 
   handleDecrement = () => {
@@ -33,13 +30,10 @@ export class Counter extends Component {
     return (
       <Wrapper>
         <CounterValue> {this.state.value}</CounterValue>
-        <Button type="button" name="Increment" onClick={this.handleIncrement}>
-          Увеличить на 1
-        </Button>
-        <Button type="button" name="Decrement " onClick={this.handleDecrement}>
-          Уменьшить на 1
-        </Button>
-
+        <Controls
+          onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
+        />
         <Wrapper></Wrapper>
       </Wrapper>
     );
