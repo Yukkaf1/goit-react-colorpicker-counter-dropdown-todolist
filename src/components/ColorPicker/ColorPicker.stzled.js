@@ -45,3 +45,17 @@ export const ColorItem = styled.li`
 export const ColorLabel = styled.span`
   margin-bottom: 5px;
 `;
+
+export const ColorButton = styled.button`
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+  border: none;
+  cursor: pointer;
+  transition: transform 250 ms lineal;
+
+  &:active {
+    transform: scale(1.1);
+  }
+`;

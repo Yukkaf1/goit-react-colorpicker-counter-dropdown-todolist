@@ -4,6 +4,7 @@ import {
   ColorSection,
   Wrapper,
   ColorList,
+  ColorButton,
   ColorItem,
   ColorLabel,
 } from './ColorPicker.stzled';
@@ -12,20 +13,29 @@ import { Component } from 'react';
 export class ColorPicker extends Component {
   static defaultProps = {};
 
-  state = {};
+  state = {
+    activeColorIdx: 3,
+  };
 
   render() {
     return (
       <Wrapper>
         <ColorPickerTitle>{this.props.title}</ColorPickerTitle>
         <ColorSection>
-          <ColorList>
-            {this.props.colors.map(({ color, label }) => {
-              <ColorItem key={color}>
-                <ColorLabel>{label}</ColorLabel>;
-              </ColorItem>;
-            })}
-          </ColorList>
+          {this.props.colors.map(({ color, label }, index) => {
+            return (
+              <ColorButton
+                key={label}
+                style={{
+                  background: color,
+                  border:
+                    index === this.state.activeColorIdx
+                      ? '5px solid black'
+                      : 'none',
+                }}
+              ></ColorButton>
+            );
+          })}
         </ColorSection>
       </Wrapper>
     );
