@@ -1,5 +1,5 @@
 import { Component } from 'react';
-
+import { Formik } from 'formik';
 import { Counter } from './Counter/Counter';
 import { Dropdown } from './Dropdown/Dropdown';
 import { ColorPicker } from './ColorPicker/ColorPicker';
@@ -14,12 +14,20 @@ export class App extends Component {
       { id: 'id-4', text: 'Todo 4', completed: false },
       { id: 'id-5', text: 'Todo 5', completed: true },
     ],
+
+    inputValue: 'Deine Aufgabe',
+    name: '',
   };
 
   deleteTodo = todoId => {
     this.setState(prevState => ({
       todos: prevState.todos.filter(todo => todo.id !== todoId),
     }));
+  };
+
+  handleNameChange = event => {
+    console.log(event.target.value);
+    this.setState({ name: event.currentTarget.value });
   };
 
   render() {
@@ -46,6 +54,16 @@ export class App extends Component {
         {/* <Dropdown /> */}
 
         {/* <ColorPicker title="Color Picker" colors={colorPickerOptions} /> */}
+        <form>
+          <label>
+            <input
+              type="text"
+              value={this.state.name}
+              onChange={this.handleNameChange}
+            />
+          </label>
+        </form>
+
         <div>
           <span>__Total: {totalTodo}</span>
           <span>__Done: {doneTodo}</span>
