@@ -4,6 +4,7 @@ import { Counter } from './Counter/Counter';
 import { Dropdown } from './Dropdown/Dropdown';
 import { ColorPicker } from './ColorPicker/ColorPicker';
 import { TodoList } from './TodoList';
+import { TodoForm } from './TodoForm';
 
 export class App extends Component {
   state = {
@@ -14,20 +15,12 @@ export class App extends Component {
       { id: 'id-4', text: 'Todo 4', completed: false },
       { id: 'id-5', text: 'Todo 5', completed: true },
     ],
-
-    inputValue: 'Deine Aufgabe',
-    name: '',
   };
 
   deleteTodo = todoId => {
     this.setState(prevState => ({
       todos: prevState.todos.filter(todo => todo.id !== todoId),
     }));
-  };
-
-  handleNameChange = event => {
-    console.log(event.target.value);
-    this.setState({ name: event.currentTarget.value });
   };
 
   render() {
@@ -37,7 +30,6 @@ export class App extends Component {
       (acc, todo) => (todo.completed ? acc + 1 : acc),
       0
     );
-
     // const colorPickerOptions = [
     //   { label: 'red', color: '#F44336' },
     //   { label: 'green', color: '#4CAF50' },
@@ -54,21 +46,13 @@ export class App extends Component {
         {/* <Dropdown /> */}
 
         {/* <ColorPicker title="Color Picker" colors={colorPickerOptions} /> */}
-        <form>
-          <label>
-            <input
-              type="text"
-              value={this.state.name}
-              onChange={this.handleNameChange}
-            />
-          </label>
-        </form>
+        <TodoForm />
+        <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
 
         <div>
           <span>__Total: {totalTodo}</span>
           <span>__Done: {doneTodo}</span>
         </div>
-        <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
       </>
     );
   }
