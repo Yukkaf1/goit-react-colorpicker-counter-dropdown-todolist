@@ -5,6 +5,7 @@ export const TodoSection = styled.section`
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
+  align-content: flex-start;
 `;
 
 export const TodoTitle = styled.h2`

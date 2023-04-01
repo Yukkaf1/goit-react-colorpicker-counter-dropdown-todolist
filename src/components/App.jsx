@@ -5,16 +5,24 @@ import { Dropdown } from './Dropdown/Dropdown';
 import { ColorPicker } from './ColorPicker/ColorPicker';
 import { TodoList } from './TodoList';
 import { TodoForm } from './TodoForm';
+import shortid from 'shortid';
 
 export class App extends Component {
   state = {
-    todos: [
-      { id: 'id-1', text: 'Todo 1', completed: false },
-      { id: 'id-2', text: 'Todo 2', completed: false },
-      { id: 'id-3', text: 'Todo 3', cpmpleted: true },
-      { id: 'id-4', text: 'Todo 4', completed: false },
-      { id: 'id-5', text: 'Todo 5', completed: true },
-    ],
+    todos: [],
+  };
+
+  addTodo = text => {
+    console.log('text', text);
+
+    const todo = {
+      id: shortid.generate(),
+      text,
+    };
+
+    this.setState(prevState => ({
+      todos: [todo, ...prevState.todos],
+    }));
   };
 
   deleteTodo = todoId => {
@@ -22,6 +30,41 @@ export class App extends Component {
       todos: prevState.todos.filter(todo => todo.id !== todoId),
     }));
   };
+
+  toggleCompleted = todoId => {
+    console.log(todoId);
+
+    this.setState(prevState => ({
+      todos: prevState.todos.map(todo => {
+        if (todo.id === todoId) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        }
+        return todo;
+      }),
+    }));
+  };
+
+  componentDidMount() {
+    const todos = localStorage.getItem('todos');
+    const parsedTodos = JSON.parse(todos);
+
+    if (parsedTodos) {
+      this.setState({ todos: parsedTodos });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // console.log(prevState);
+    // console.log(this.state);
+
+    if (this.state.todos !== prevState.todos) {
+      console.log('Оновился стейт');
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
+  }
 
   render() {
     const { todos } = this.state;
@@ -46,7 +89,7 @@ export class App extends Component {
         {/* <Dropdown /> */}
 
         {/* <ColorPicker title="Color Picker" colors={colorPickerOptions} /> */}
-        <TodoForm />
+        <TodoForm onSubmit={this.addTodo} />
         <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
 
         <div>

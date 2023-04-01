@@ -15,32 +15,37 @@ export class TodoForm extends Component {
       { id: 'id-5', text: 'Todo 5', completed: true },
     ],
     inputValue: 'Deine Aufgabe',
-    name: '',
+    message: '',
   };
 
-  handleNameChange = event => {
+  handlChange = event => {
     console.log(event.target.value);
-    this.setState({ name: event.currentTarget.value });
+    this.setState({ message: event.currentTarget.value });
   };
 
   handleSubmit = e => {
-    e.preventDefaul();
-    console.log(this.state);
+    e.preventDefault();
+    console.log('submit', this.state);
+    this.props.onSubmit(this.state.message);
+
+    this.setState({ message: '' });
+    // resetForm({ values: '' });
   };
 
   render() {
     const { todos } = this.state;
 
     return (
-      <Formik onSubmit={this.handelSubmit}>
-        <Form>
+      <Formik>
+        <Form onSubmit={this.handleSubmit}>
           <FormField>
             <input
               type="text"
-              value={this.state.name}
-              onChange={this.handleNameChange}
+              onChange={this.handlChange}
+              value={this.state.massege}
             />
           </FormField>
+          <button type="submit">Add</button>
         </Form>
       </Formik>
     );

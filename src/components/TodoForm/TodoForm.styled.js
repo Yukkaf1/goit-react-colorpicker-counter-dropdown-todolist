@@ -12,6 +12,7 @@ export const Form = styled(FormikForm)`
   padding: 8px;
   border: 1px solid ${p => p.theme.colors.black};
   border-radius: 4px;
+  width: 600px;
 `;
 
 export const FormField = styled.label`
