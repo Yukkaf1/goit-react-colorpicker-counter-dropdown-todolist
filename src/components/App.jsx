@@ -6,11 +6,18 @@ import { ColorPicker } from './ColorPicker/ColorPicker';
 import { TodoList } from './TodoList';
 import { TodoForm } from './TodoForm';
 import shortid from 'shortid';
-import Modal from './Modal';
+import { Modal } from './Modal';
 
 export class App extends Component {
   state = {
     todos: [],
+    showModal: false,
+  };
+
+  toggleModal = () => {
+    this.setState(state => ({
+      showModal: !state.showModal,
+    }));
   };
 
   addTodo = text => {
@@ -68,7 +75,7 @@ export class App extends Component {
   }
 
   render() {
-    const { todos } = this.state;
+    const { todos, showModal } = this.state;
     const totalTodo = todos.length;
     const doneTodo = todos.reduce(
       (acc, todo) => (todo.completed ? acc + 1 : acc),
@@ -86,18 +93,34 @@ export class App extends Component {
 
     return (
       <>
-        <Modal />
+        <button type="button" onClick={this.toggleModal}>
+          Открыть модалку
+        </button>
+        {showModal && (
+          <Modal onClose={this.toggleModal}>
+            <h1>Контент модалки</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
+              consequuntur error sit illum nulla labore, facilis tempore, quod
+              itaque voluptatibus quibusdam? Maxime quisquam quidem eligendi
+              temporibus debitis, corrupti officia sapiente!
+            </p>
+            <button type="button" onClick={this.toggleModal}>
+              Закрыть
+            </button>
+          </Modal>
+        )}
         {/* <Counter initialValue={22} /> */}
         {/* <Dropdown /> */}
 
         {/* <ColorPicker title="Color Picker" colors={colorPickerOptions} /> */}
-        {/* <TodoForm onSubmit={this.addTodo} />
+        <TodoForm onSubmit={this.addTodo} />
         <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
 
         <div>
           <span>__Total: {totalTodo}</span>
           <span>__Done: {doneTodo}</span>
-        </div> */}
+        </div>
       </>
     );
   }

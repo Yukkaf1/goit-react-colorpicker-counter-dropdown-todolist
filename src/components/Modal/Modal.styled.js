@@ -14,16 +14,16 @@ export const Overlay = styled.div`
 `;
 
 export const ModalWindow = styled.div`
-position:absolute;
-top: 50%
-left: 50%
-transform: translate(-50%, -50%);
-min-height: 300px;
-max-width: 600px
-width: 100%
-padding: 12px
-background-color: #fff;
-border-radius: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 300px;
+  max-width: 600px;
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 3px;
 `;
 
 export const Img = styled.img``;
