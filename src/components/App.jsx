@@ -6,6 +6,7 @@ import { ColorPicker } from './ColorPicker/ColorPicker';
 import { TodoList } from './TodoList';
 import { TodoForm } from './TodoForm';
 import shortid from 'shortid';
+import Modal from './Modal';
 
 export class App extends Component {
   state = {
@@ -61,7 +62,7 @@ export class App extends Component {
     // console.log(this.state);
 
     if (this.state.todos !== prevState.todos) {
-      console.log('Оновился стейт');
+      console.log('Обновился стейт');
       localStorage.setItem('todos', JSON.stringify(this.state.todos));
     }
   }
@@ -85,17 +86,18 @@ export class App extends Component {
 
     return (
       <>
+        <Modal />
         {/* <Counter initialValue={22} /> */}
         {/* <Dropdown /> */}
 
         {/* <ColorPicker title="Color Picker" colors={colorPickerOptions} /> */}
-        <TodoForm onSubmit={this.addTodo} />
+        {/* <TodoForm onSubmit={this.addTodo} />
         <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
 
         <div>
           <span>__Total: {totalTodo}</span>
           <span>__Done: {doneTodo}</span>
-        </div>
+        </div> */}
       </>
     );
   }
