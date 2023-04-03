@@ -23,9 +23,20 @@ export class Modal extends Component {
     }
   };
 
+  handleBackdropClick = e => {
+    console.log('Кликнули в бекдроп');
+
+    console.log('currentTarget', e.currentTarget);
+    console.log('target:', e.target);
+
+    if (e.currentTarget === e.target) {
+      this.props.onClose();
+    }
+  };
+
   render() {
     return createPortal(
-      <Overlay>
+      <Overlay onClick={this.handleBackdropClick}>
         <ModalWindow>{this.props.children}</ModalWindow>
       </Overlay>,
       modalRoot
